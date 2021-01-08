@@ -1,3 +1,3 @@
 # React movie App
 
-This Application is watch movie.
+React JS Fundamenals Course (2020.01.08 Update!)
