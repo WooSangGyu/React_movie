@@ -10,13 +10,18 @@ class App extends React.Component {
     count: 0
   }
 
+  // this.state.count 는 좋은 방법이 아니다. 의존성 문제와 성능문제를 야기하기 때문에
+  // 다음과 같이 current를 사용하면 해결할 수 있고, 좋은 코딩 방법이다.
+
   add = () => {
-    console.log("add");
+    this.setState(current => ({ count: current.count + 1 }))
   }
 
   minus = () => {
-    console.log("minus");
+    this.setState(current => ({ count: current.count - 1 }))
   }
+
+
 
   // this.add() 하면 즉시 실행, 하지만 내가 원하는 건 클릭 했을때만 실행을 원하기 때문에 ()를 빼고 작성
   render() {
