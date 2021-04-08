@@ -1,69 +1,32 @@
 import React from "react";
 import propTypes from "prop-types";
 
-const foodILike = [
-  {
-    id: 1,
-    name: "Kimchi",
-    image:
-      "https://w.namu.la/s/2958e0d7304f1b744021983c55747de2840e0e59a1f3d677d9315f5bad981f002769ce59921aea02b2dd23b5384a0ce30864fe6d84ea1b9aaed80fb3b5f60b6de4a6c9a79a24e7e7ea23a2a4cb1558a6c7379e8ec0ba038a3c5a39a723080b9607e499d06609526c25dfeaee70104955",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Samgyeosal",
-    image:
-      "https://ww.namu.la/s/bf2527dfd9717aea7f08232f93199df34d308181c08223628b862f90b4d77593479ba3d8b7fe6b1e781c731472c3679113e43dd1c93b608ca5c1f069386f24f795ceb4eb2570230a7923423c654618ffc5fed3d97de77c8e5ba22380e4e663a654cc08765c80fca554bed79c7401d12f",
-    rating: 4.9,
-  },
-  {
-    id: 3,
-    name: "Bibimbap",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/330px-Dolsot-bibimbap.jpg",
-    rating: 4.8,
-  },
-  {
-    id: 4,
-    name: "ramen",
-    image:
-      "https://w.namu.la/s/9f15f198aab1b14c8aa47e96a91a9d03331ecb7b5b892c803159d39b0d77ab4be30e2f15f66191284d7dad8371989329cc1c80810745e980a6949ae5e3589df6c2d6935c8e781c80b731f923927078a9362c45acb028adc90486b9153709786b",
-    rating: 4.7,
-  },
-];
+// extends 를 통해 React.Componet가 가지고 있는 여러가지 method 를 가져온다.
+// 그 중 지금 사용하려고 하는 것은 render Method 이다.
+// react는 자동적으로 모든 class의 render method를 실행한다.
 
-// function renderFood(dish) {
-//   return <Food name={dish.name} picture={dish.image} />;
-// }
+class App extends React.Component {
+  state = {
+    count: 0
+  }
 
-// 첫번째 인자로 props를 받는다 -> { fav } == props.fav
-function Food({ name, picture, rating }) {
-  return (
-    <div>
-      <h2>I like {name}</h2>
-      <h4>{rating}/5.0</h4>
-      <img src={picture} alt={name} />
+  add = () => {
+    console.log("add");
+  }
+
+  minus = () => {
+    console.log("minus");
+  }
+
+  // this.add() 하면 즉시 실행, 하지만 내가 원하는 건 클릭 했을때만 실행을 원하기 때문에 ()를 빼고 작성
+  render() {
+    const state = this.state
+    return <div>
+      <h1>The number is : {state.count}</h1>
+      <button onClick={this.add}>Add</button>
+      <button onClick={this.minus}>Minus</button>
     </div>
-  );
+  }
 }
-
-Food.propTypes = {
-  name: propTypes.string.isRequired,
-  picture: propTypes.string.isRequired,
-  rating: propTypes.number,
-};
-
-function App() {
-  return (
-    <div>
-      {foodILike.map((dish) => (
-        <Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating} />
-      ))}
-    </div>
-  );
-}
-
-// function App() {
-//   return <div>{(console.log(foodILike.map(renderFood)), foodILike.map(renderFood))}</div>;
-// }
 
 export default App;
