@@ -13,7 +13,7 @@ function Movie({title, summary, poster, year, genres}) {
                     {genres.map((genres, index) => (
                         <li key={index} className="genres_genres">{genres}</li>
                     ))}
-                <p className = "movie_summary">{summary}</p>
+                <p className = "movie_summary">{summary.slice(0,140)}...</p>
                 </ul>
             </div>
         </div>
