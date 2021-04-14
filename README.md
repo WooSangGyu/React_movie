@@ -4,6 +4,14 @@ React JS Fundamenals Course (2020.01.08 Update!)
 
 continue
 
+- 프로젝트 시작
+  
+1. npm install -g create-react-app
+
+  2. create-react-app 원하는 폴더이름
+  
+    create-react-app Kimchi
+
 - App.js 중
 
   class App extend React.component 에서 extends 를 통해 React.Componet가
